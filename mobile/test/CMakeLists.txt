@@ -1,7 +1,7 @@
 set(dir ${CMAKE_CURRENT_SOURCE_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${dir}/build")
 set(FOUND_MATCH OFF)
-set(ENABLE_ALL_TEST ON)
+set(ENABLE_ALL_TEST OFF)
 
 if (ANDROID_ABI STREQUAL "arm64-v8a")
     message("using google's linker to link armv8 binary")
@@ -542,4 +542,10 @@ else()
 
     ADD_EXECUTABLE(test-inference-pre-post net/test_inference_pre_post.cpp)
     target_link_libraries(test-inference-pre-post paddle-mobile)
+
+    ADD_EXECUTABLE(test-mobilenetgpu  net/test_mobilenet_GPU.cpp test_helper.h  test_include.h)
+    target_link_libraries(test-mobilenetgpu paddle-mobile)
+
+    ADD_EXECUTABLE(test-porngpu  net/test_porn.cpp test_helper.h  test_include.h)
+    target_link_libraries(test-porngpu paddle-mobile)
 endif()

@@ -3,7 +3,7 @@ NETS=""
 declare -a supportedNets=("googlenet" "mobilenet" "yolo" "squeezenet" "resnet" "mobilenetssd" "nlp" "mobilenetfssd" "genet" "super" "op")
 
 # merge cl to so
-merge_cl_to_so=0
+merge_cl_to_so=1
 opencl_kernels="opencl_kernels.cpp"
 cd ../src/operators/kernel/cl
 if [[ -f "${opencl_kernels}" ]]; then
@@ -105,7 +105,7 @@ build_for_android() {
 }
 
 build_for_arm_linux() {
-    MODE="Release"
+    MODE="Debug"
     ARM_LINUX="arm-linux"
 
     if [ "${#NETS}" -gt 1 ]; then

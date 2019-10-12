@@ -6,7 +6,7 @@ import subprocess
 import numpy as np
 import paddle.fluid as fluid
 
-model_path = "model"
+model_path = "porn-mobile-v1"
 checked_model_path = "checked_model"
 feed_path = "feeds"
 output_path = "outputs"
