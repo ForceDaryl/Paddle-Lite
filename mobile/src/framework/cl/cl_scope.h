@@ -20,6 +20,7 @@ limitations under the License. */
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <iostream>
 
 #include "CL/cl.h"
 #include "framework/cl/cl_deleter.h"
@@ -82,6 +83,7 @@ class CLScope {
           context_, source.c_str());
 
       DLOG << " --- begin build program -> " << program_key << " --- ";
+      std::cerr << "zp7 build options :" << options;
       CLEngine::Instance()->BuildProgram(program.get(), options);
       DLOG << " --- end build program -> " << program_key << " --- ";
 
